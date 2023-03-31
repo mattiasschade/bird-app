@@ -4,5 +4,8 @@ class BirdsController < ApplicationController
     render :index
   end
 
-  
+  def show
+    @bird = Bird.find_by(id: params["id"])
+    render :show
+  end
 end
