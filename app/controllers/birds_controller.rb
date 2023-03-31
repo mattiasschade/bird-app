@@ -8,4 +8,14 @@ class BirdsController < ApplicationController
     @bird = Bird.find_by(id: params["id"])
     render :show
   end
+
+  def create
+    @bird = Bird.new
+    @bird.species = params[:species]
+    @bird.description = params[:description]
+    @bird.image_url = params[:image_url]
+
+    @bird.save
+    render :show
+  end
 end
