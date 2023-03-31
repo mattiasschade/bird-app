@@ -28,4 +28,11 @@ class BirdsController < ApplicationController
     @bird.save
     render :show
   end
+
+  def destroy
+    @bird = Bird.find_by(id: params["id"])
+    @bird.destroy
+
+    render json: {message: "The bird has been successfully deleted from the database."}
+  end
 end
