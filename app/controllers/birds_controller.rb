@@ -18,4 +18,14 @@ class BirdsController < ApplicationController
     @bird.save
     render :show
   end
+
+  def update
+    @bird = Bird.find_by(id: params["id"])
+    @bird.species = params[:species] || @bird.species
+    @bird.description = params[:description] || @bird.description
+    @bird.image_url = params[:image_url] || @bird.image_url
+
+    @bird.save
+    render :show
+  end
 end
